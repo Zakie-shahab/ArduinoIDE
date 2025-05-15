@@ -6,14 +6,14 @@ RH_ASK rf_driver;
 void setup() {
   Serial.begin(115200);
   if (!rf_driver.init()) {
-    Serial.println("RF module initialization failed!");
+    Serial.println("RF module gagal!");
   }
 }
 
 void loop() {
-  const char *msg = "Hello, ESP32!";
-  rf_driver.send((uint8_t *)msg, strlen(msg));  // Send the message
-  rf_driver.waitPacketSent();                   // Wait for it to finish sending
+  const char *msg = "Gas!";
+  rf_driver.send((uint8_t *)msg, strlen(msg));  
+  rf_driver.waitPacketSent();                  
   Serial.println("Message sent: Hello, ESP32!");
-  delay(1000);                                  // Wait before sending again
+  delay(1000);                                  
 }
